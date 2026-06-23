@@ -1,7 +1,6 @@
 import mongoose from 'mongoose';
-import { MongoMemoryServer } from 'mongodb-memory-server';
 
-let mongoServer: MongoMemoryServer | null = null;
+let mongoServer: any = null;
 
 const connectDB = async (): Promise<void> => {
   try {
@@ -10,6 +9,7 @@ const connectDB = async (): Promise<void> => {
     // If no external MongoDB URI is provided, start in-memory server
     if (!uri) {
       console.log('Starting in-memory MongoDB server...');
+      const { MongoMemoryServer } = await import('mongodb-memory-server');
       mongoServer = await MongoMemoryServer.create();
       uri = mongoServer.getUri();
       console.log('In-memory MongoDB started');
