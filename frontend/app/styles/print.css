@@ -1,0 +1,122 @@
+@media print {
+  /* 1. Global Page Reset to Clean Light Theme */
+  html, body {
+    background: #ffffff !important;
+    color: #1a1a1a !important;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  /* 2. Hide Screen-Only Elements */
+  header,
+  footer,
+  nav,
+  .sidebar,
+  button,
+  .glow-button,
+  .glow-button-secondary,
+  .tab-buttons,
+  input,
+  textarea,
+  select,
+  .modal,
+  .fixed,
+  .bg-black\/60,
+  #print-itinerary,
+  #share-trip,
+  .add-expense-form,
+  .expense-action-btn,
+  .action-buttons,
+  [id^="add-item-btn"],
+  [id^="new-item-input"],
+  .delete-btn,
+  .edit-btn,
+  .customize-btn,
+  .add-day-btn {
+    display: none !important;
+  }
+
+  /* 3. Show all tab contents concurrently for a single unified report */
+  .hidden {
+    display: none !important;
+  }
+  
+  .print\:block {
+    display: block !important;
+  }
+
+  /* 4. Formatting content cards for print */
+  .glass-card, 
+  .weather-card-apple, 
+  .hotel-card,
+  .card {
+    background: #f8fafc !important;
+    border: 1px solid #cbd5e1 !important;
+    border-radius: 12px !important;
+    color: #1e293b !important;
+    box-shadow: none !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+    margin-bottom: 20px !important;
+    padding: 20px !important;
+  }
+
+  /* Ensure timeline lists look clean without complex CSS shapes */
+  .timeline-container {
+    border-left: 2px solid #cbd5e1 !important;
+    padding-left: 20px !important;
+    margin-left: 10px !important;
+  }
+
+  .timeline-node {
+    margin-bottom: 20px !important;
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+  }
+
+  /* Clean headings and text colors */
+  h1, h2, h3, h4, h5, h6 {
+    color: #0f172a !important;
+    text-shadow: none !important;
+    margin-top: 15px !important;
+    margin-bottom: 10px !important;
+  }
+
+  span, p, div, li, td, th {
+    color: #334155 !important;
+  }
+
+  .text-white {
+    color: #0f172a !important;
+  }
+
+  .text-muted-foreground {
+    color: #64748b !important;
+  }
+
+  /* Clean up grids for layout friendliness */
+  .grid {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 15px !important;
+  }
+
+  .grid-cols-2, .grid-cols-3, .md\:grid-cols-2, .md\:grid-cols-3 {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 15px !important;
+  }
+
+  /* Add page breaks before main tab categories to look like a structured report */
+  .print-section-break {
+    page-break-before: always !important;
+    break-before: page !important;
+    margin-top: 40px !important;
+    padding-top: 20px !important;
+  }
+}

@@ -402,7 +402,7 @@ export default function PublicTripSharePage({
         {/* ── Tab Content ─────────────────────────────────────────────────── */}
 
         {/* ITINERARY TAB */}
-        {activeTab === 'itinerary' && (
+        <div className={activeTab === 'itinerary' ? 'block' : 'hidden print:block'}>
           <div className="space-y-8">
             {trip.itinerary.map((day) => (
               <div key={day.dayNumber} className="glass-card animate-fade-in">
@@ -449,10 +449,11 @@ export default function PublicTripSharePage({
               </div>
             ))}
           </div>
-        )}
+        </div>
 
         {/* HOTELS TAB */}
-        {activeTab === 'hotels' && (
+        <div className={`print-section-break ${activeTab === 'hotels' ? 'block' : 'hidden print:block'}`}>
+          <h2 className="hidden print:block text-2xl font-bold mb-6">🏨 Recommended Accommodations</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 animate-fade-in">
             {trip.hotels.map((hotel, idx) => (
               <div key={idx} className="hotel-card">
@@ -537,11 +538,13 @@ export default function PublicTripSharePage({
               </div>
             ))}
           </div>
-        )}
+        </div>
 
         {/* BUDGET TAB */}
-        {activeTab === 'budget' && trip.estimatedBudget && (
-          <div className="space-y-8 animate-fade-in">
+        {trip.estimatedBudget && (
+          <div className={`print-section-break ${activeTab === 'budget' ? 'block' : 'hidden print:block'}`}>
+            <h2 className="hidden print:block text-2xl font-bold mb-6">📊 Budget & Expense Tracking</h2>
+            <div className="space-y-8 animate-fade-in">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               {/* Estimated Budget Cards */}
               <div className="space-y-6">
@@ -740,10 +743,12 @@ export default function PublicTripSharePage({
               </div>
             </div>
           </div>
-        )}
+        </div>
+      )}
 
         {/* PACKING */}
-        {activeTab === 'packing' && (
+        <div className={`print-section-break ${activeTab === 'packing' ? 'block' : 'hidden print:block'}`}>
+          <h2 className="hidden print:block text-2xl font-bold mb-6">🎒 Packing Checklist</h2>
           <div className="space-y-8 animate-fade-in">
             {/* Progress Circular Radial Ring card */}
             <div className="glass-card p-6">
@@ -831,7 +836,7 @@ export default function PublicTripSharePage({
               })}
             </div>
           </div>
-        )}
+        </div>
       </div>
     </div>
   );
