@@ -1,0 +1,87 @@
+/* ─── Premium SaaS Action Buttons ─────────────────────────────────────────── */
+
+.glow-button,
+button[type="submit"]:not(#regen-submit):not(#regen-cancel) {
+  background: linear-gradient(135deg, #8B5CF6 0%, #A855F7 35%, #D946EF 70%, #EC4899 100%) !important;
+  color: #ffffff !important;
+  font-weight: 600 !important;
+  cursor: pointer !important;
+  height: 56px !important;
+  padding: 0 32px !important;
+  border-radius: 18px !important;
+  border: none !important;
+  box-shadow: 0 10px 25px rgba(236, 72, 153, 0.25) !important;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  text-decoration: none;
+}
+
+.glow-button:hover,
+button[type="submit"]:not(#regen-submit):not(#regen-cancel):hover {
+  transform: translateY(-2px) scale(1.02) !important;
+  box-shadow: 0 15px 35px rgba(236, 72, 153, 0.35), 0 0 20px rgba(139, 92, 246, 0.4) !important;
+  filter: brightness(1.08);
+}
+
+.glow-button:active,
+button[type="submit"]:not(#regen-submit):not(#regen-cancel):active {
+  transform: translateY(0) scale(0.98) !important;
+  box-shadow: 0 4px 10px rgba(236, 72, 153, 0.15) !important;
+}
+
+.glow-button:disabled,
+button[type="submit"]:disabled {
+  background: rgba(255, 255, 255, 0.04) !important;
+  color: rgba(255, 255, 255, 0.25) !important;
+  box-shadow: none !important;
+  cursor: not-allowed !important;
+  transform: none !important;
+  filter: none !important;
+  border: 1px solid var(--border) !important;
+}
+
+/* Secondary Button designs override default border actions */
+.glow-button-secondary,
+#regen-cancel,
+#print-itinerary,
+#trip-back {
+  background: rgba(255, 255, 255, 0.04) !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  backdrop-filter: blur(20px) !important;
+  -webkit-backdrop-filter: blur(20px) !important;
+  color: var(--text-primary) !important;
+  border-radius: 18px !important;
+  height: 56px !important;
+  padding: 0 28px !important;
+  font-size: 15px !important;
+  font-weight: 600 !important;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  gap: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15) !important;
+  text-decoration: none;
+}
+
+.glow-button-secondary:hover,
+#regen-cancel:hover,
+#print-itinerary:hover,
+#trip-back:hover {
+  background: rgba(255, 255, 255, 0.08) !important;
+  border-color: rgba(255, 255, 255, 0.2) !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25), 0 0 15px rgba(255, 255, 255, 0.05) !important;
+}
+
+.glow-button-secondary:active,
+#regen-cancel:active,
+#print-itinerary:active,
+#trip-back:active {
+  transform: translateY(0);
+}
+

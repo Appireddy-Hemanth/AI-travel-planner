@@ -1,0 +1,534 @@
+/* ─── Premium Travel Planner Pages ────────────────────────────────────────── */
+
+/* ── Wizard: Destination Hero Screen ────────────────────────────────────────── */
+
+.new-trip-hero {
+  text-align: center;
+  padding: 60px 0 40px;
+}
+
+.new-trip-hero h2 {
+  font-size: 40px !important;
+  font-weight: 800;
+  margin-bottom: 24px;
+  line-height: 1.2;
+}
+
+/* Center Form Step 1 */
+form:has(#trip-destination) .glass-card {
+  max-width: 720px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 48px 32px !important;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+form:has(#trip-destination) .flex.items-center.gap-3 {
+  justify-content: center;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+form:has(#trip-destination) h2 {
+  font-size: 40px !important;
+  text-align: center;
+}
+
+form:has(#trip-destination) .relative.mb-6 {
+  width: 100%;
+  max-width: 580px;
+  margin: 0 auto 24px;
+}
+
+form:has(#trip-destination) .input-field {
+  text-align: center;
+  padding-left: 20px !important;
+}
+
+form:has(#trip-destination) .relative.mb-6 span {
+  display: none !important;
+}
+
+form:has(#trip-destination) .mb-8 {
+  width: 100%;
+}
+
+form:has(#trip-destination) .flex.flex-wrap.gap-2 {
+  justify-content: center;
+}
+
+/* Popular destinations chips */
+.destination-chips-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  margin: 20px 0 32px;
+}
+
+.destination-chip {
+  background: rgba(15, 23, 42, 0.5);
+  border: 1px solid var(--border);
+  padding: 8px 16px;
+  border-radius: 9999px;
+  cursor: pointer;
+  font-size: 14px !important;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.destination-chip:hover {
+  background: var(--card-hover);
+  border-color: var(--border-hover);
+  transform: translateY(-2px);
+}
+
+.destination-chip.active {
+  background: rgba(139, 92, 246, 0.12) !important;
+  border-color: var(--purple) !important;
+  color: var(--purple) !important;
+  box-shadow: 0 0 20px rgba(139, 92, 246, 0.2);
+  transform: translateY(-2px);
+}
+
+/* ── Interactive Selection Cards (Budget Selector) ─────────────────────────── */
+
+.select-card {
+  position: relative;
+  background: rgba(15, 23, 42, 0.4);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 24px;
+  cursor: pointer;
+  width: 100%;
+  text-align: left;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  overflow: hidden;
+}
+
+.select-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(255, 255, 255, 0.15);
+  background: rgba(22, 32, 59, 0.55);
+}
+
+/* Active selector state with scale, glow, and border highlight */
+.select-card.active {
+  border-color: var(--purple) !important;
+  background: rgba(139, 92, 246, 0.08) !important;
+  box-shadow: 0 0 25px rgba(139, 92, 246, 0.25) !important;
+  transform: translateY(-4px) scale(1.02);
+}
+
+.select-card.active::after {
+  content: '✓';
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--purple), var(--pink));
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  font-weight: bold;
+}
+
+/* ── Boarding Pass ticket Card Design ──────────────────────────────────────── */
+
+.ticket-card {
+  background: rgba(15, 23, 42, 0.6) !important;
+  backdrop-filter: blur(25px) !important;
+  -webkit-backdrop-filter: blur(25px) !important;
+  border: 1px solid var(--border) !important;
+  border-radius: 24px !important;
+  position: relative !important;
+  overflow: hidden !important;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.35) !important;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  padding-left: 24px !important;
+}
+
+.ticket-card::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 5px;
+  background: linear-gradient(180deg, var(--purple), var(--pink));
+  z-index: 20;
+}
+
+.ticket-card:hover {
+  border-color: rgba(139, 92, 246, 0.25) !important;
+  box-shadow: 0 15px 50px rgba(139, 92, 246, 0.08) !important;
+}
+
+/* Boarding ticket dash divider cutout styles */
+.ticket-divider {
+  position: relative;
+  height: 1px;
+  border-top: 2px dashed rgba(255, 255, 255, 0.08) !important;
+  margin: 24px 0 !important;
+}
+
+.ticket-divider::before,
+.ticket-divider::after {
+  content: '';
+  position: absolute;
+  top: -10px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--bg-primary) !important;
+  border: 1px solid var(--border);
+  z-index: 10;
+}
+
+.ticket-divider::before {
+  left: -11px;
+  border-left-color: transparent !important;
+  border-bottom-color: transparent !important;
+}
+
+.ticket-divider::after {
+  right: -11px;
+  border-right-color: transparent !important;
+  border-top-color: transparent !important;
+}
+
+/* ── Budget Page: Modern 2-Column Layout ────────────────────────────────────── */
+
+.space-y-6 > .grid.grid-cols-1.md\:grid-cols-2 {
+  display: grid !important;
+  grid-template-cols: 1.15fr 0.85fr !important;
+  gap: 24px !important;
+}
+
+/* ── Modern Hotel Cards ────────────────────────────────────────────────────── */
+
+.grid.grid-cols-1.md\:grid-cols-3 {
+  display: grid !important;
+  grid-template-cols: repeat(3, 1fr) !important;
+  gap: 24px !important;
+}
+
+.hotel-card {
+  background: var(--card-bg) !important;
+  border: 1px solid var(--border) !important;
+  border-radius: 24px !important;
+  overflow: hidden !important;
+  display: flex !important;
+  flex-direction: column !important;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2) !important;
+}
+
+.hotel-card:hover {
+  transform: translateY(-4px) !important;
+  border-color: var(--border-hover) !important;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.3), 0 0 20px rgba(139, 92, 246, 0.08) !important;
+}
+
+.hotel-card-image {
+  position: relative !important;
+  height: 180px !important;
+  background: linear-gradient(135deg, rgba(139, 92, 246, 0.1), rgba(236, 72, 153, 0.15)) !important;
+  border-bottom: 1px solid var(--border) !important;
+  overflow: hidden !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+.hotel-card-image::after {
+  content: '🏨';
+  font-size: 3.5rem !important;
+  filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.3));
+}
+
+.hotel-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hotel-card-content {
+  padding: 24px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 12px !important;
+  flex: 1 1 auto !important;
+}
+
+.hotel-card-title {
+  font-size: 20px !important;
+  font-weight: 700 !important;
+  color: var(--text-primary) !important;
+  line-height: 1.3 !important;
+}
+
+.hotel-card-location {
+  display: flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+  font-size: 13px !important;
+  color: var(--text-secondary) !important;
+}
+
+.hotel-card-description {
+  font-size: 14px !important;
+  color: var(--text-secondary) !important;
+  line-height: 1.5 !important;
+}
+
+.hotel-card-amenities {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  gap: 6px !important;
+  margin-top: 4px !important;
+  margin-bottom: 12px !important;
+}
+
+.hotel-card-amenity {
+  font-size: 11px !important;
+  font-weight: 600 !important;
+  padding: 4px 8px !important;
+  border-radius: 6px !important;
+  background: rgba(255, 255, 255, 0.04) !important;
+  border: 1px solid var(--border) !important;
+  color: var(--text-secondary) !important;
+}
+
+.hotel-card-footer {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  padding-top: 16px !important;
+  border-top: 1px solid var(--border) !important;
+  margin-top: auto !important;
+}
+
+.hotel-card-price-label {
+  font-size: 12px !important;
+  color: var(--text-secondary) !important;
+  display: block;
+}
+
+.hotel-card-price {
+  font-size: 22px !important;
+  font-weight: 700 !important;
+  color: var(--success) !important;
+  font-family: var(--font-mono) !important;
+}
+
+.hotel-card-book-btn {
+  height: 38px !important;
+  border-radius: 10px !important;
+  padding: 0 16px !important;
+  font-size: 12px !important;
+  font-weight: 700 !important;
+  background: linear-gradient(90deg, var(--purple) 0%, var(--pink) 100%) !important;
+  color: #fff !important;
+  border: none !important;
+  cursor: pointer !important;
+  transition: all 0.25s ease !important;
+  box-shadow: 0 4px 10px rgba(139, 92, 246, 0.2) !important;
+}
+
+.hotel-card-book-btn:hover {
+  transform: translateY(-1px) !important;
+  box-shadow: 0 6px 15px rgba(139, 92, 246, 0.3) !important;
+  filter: brightness(1.08) !important;
+}
+
+/* ── Timeline Details ──────────────────────────────────────────────────────── */
+
+.timeline-container {
+  position: relative;
+  padding-left: 2rem;
+}
+
+.timeline-container::before {
+  content: '';
+  position: absolute;
+  left: 8px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(180deg, var(--purple), var(--pink));
+  opacity: 0.15;
+}
+
+.timeline-node {
+  position: relative;
+  margin-bottom: 24px;
+}
+
+.timeline-node::before {
+  content: '';
+  position: absolute;
+  left: -28px;
+  top: 6px;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--purple);
+  border: 3px solid var(--bg-primary);
+  box-shadow: 0 0 10px var(--purple);
+}
+
+/* ── Airbnb Style Trip Cards ────────────────────────────────────────────── */
+
+.airbnb-trip-card {
+  height: 480px !important;
+  border-radius: 28px !important;
+  background: rgba(255, 255, 255, 0.04) !important;
+  border: 1px solid rgba(255, 255, 255, 0.03) !important;
+  box-shadow: 0 15px 60px rgba(0, 0, 0, 0.35) !important;
+  overflow: hidden !important;
+  display: flex !important;
+  flex-direction: column !important;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  position: relative !important;
+}
+
+.airbnb-trip-card:hover {
+  transform: translateY(-8px) !important;
+  box-shadow: 0 25px 80px rgba(0, 0, 0, 0.5), 0 0 35px rgba(139, 92, 246, 0.15) !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+.airbnb-trip-card-image-container {
+  height: 240px !important;
+  position: relative !important;
+  overflow: hidden !important;
+  background: linear-gradient(135deg, rgba(21, 36, 71, 0.6), rgba(7, 11, 22, 0.8)) !important;
+}
+
+.airbnb-trip-card-image {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.airbnb-trip-card:hover .airbnb-trip-card-image {
+  transform: scale(1.08) !important;
+}
+
+.airbnb-trip-card-overlay {
+  position: absolute !important;
+  inset: 0 !important;
+  background: linear-gradient(to top, rgba(11, 17, 32, 0.95) 0%, rgba(11, 17, 32, 0.4) 60%, transparent 100%) !important;
+  z-index: 10 !important;
+}
+
+.airbnb-trip-card-bookmark {
+  position: absolute !important;
+  top: 20px !important;
+  right: 20px !important;
+  z-index: 20 !important;
+  width: 44px !important;
+  height: 44px !important;
+  border-radius: 50% !important;
+  background: rgba(11, 17, 32, 0.6) !important;
+  backdrop-filter: blur(10px) !important;
+  -webkit-backdrop-filter: blur(10px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  color: white !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  cursor: pointer !important;
+  transition: all 0.2s ease !important;
+}
+
+.airbnb-trip-card-bookmark:hover {
+  background: white !important;
+  color: #ec4899 !important;
+  transform: scale(1.1) !important;
+}
+
+.airbnb-trip-card-content {
+  padding: 24px 32px 32px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: space-between !important;
+  flex: 1 1 auto !important;
+  background: rgba(11, 17, 32, 0.25) !important;
+  gap: 16px !important;
+}
+
+/* ── Apple Inspired Weather Widgets ─────────────────────────────────────── */
+
+.weather-widget-grid {
+  display: grid !important;
+  grid-template-columns: repeat(3, minmax(280px, 1fr)) !important;
+  gap: 24px !important;
+}
+
+.weather-card-apple {
+  background: rgba(255, 255, 255, 0.04) !important;
+  backdrop-filter: blur(30px) !important;
+  -webkit-backdrop-filter: blur(30px) !important;
+  border-radius: 28px !important;
+  padding: 32px !important;
+  box-shadow: 0 15px 45px rgba(0, 0, 0, 0.3) !important;
+  border: none !important;
+  min-height: 220px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: space-between !important;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.weather-card-apple:hover {
+  transform: translateY(-4px) !important;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4) !important;
+}
+
+/* ── Itinerary Timeline Details ─────────────────────────────────────────── */
+
+.activity-card-timeline {
+  background: rgba(255, 255, 255, 0.05) !important;
+  border: 1px solid rgba(255, 255, 255, 0.06) !important;
+  border-radius: 20px !important;
+  padding: 24px !important;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25) !important;
+}
+
+.activity-card-timeline:hover {
+  transform: translateY(-2px) !important;
+  background: rgba(255, 255, 255, 0.07) !important;
+  border-color: rgba(255, 255, 255, 0.1) !important;
+  box-shadow: 0 12px 40px rgba(139, 92, 246, 0.1) !important;
+}
+
+/* ── Packing Progress Ring ──────────────────────────────────────────────── */
+
+.progress-ring-container {
+  position: relative !important;
+  width: 120px !important;
+  height: 120px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+.progress-ring-circle {
+  transition: stroke-dashoffset 0.35s !important;
+  transform: rotate(-90deg) !important;
+  transform-origin: 50% 50% !important;
+}
